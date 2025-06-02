@@ -1,0 +1,43 @@
+<div class="app-container">
+  <nav class="navbar">
+    <div class="navbar-content">
+      <span>Football App</span>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <h1 class="app-title">Kolekcja ulubionych piłkarzy</h1>
+    
+    <div class="add-section">
+      <h2>Dodaj swojego ulubionego piłkarza</h2>
+      <button class="add-btn" routerLink="/players/new">+ Dodaj piłkarza</button>
+    </div>
+
+    <div class="players-container">
+      <h2>Lista ulubionych piłkarzy</h2>
+      <div class="players-grid">
+        <div *ngFor="let p of players" class="player-card">
+          <div class="player-info">
+            <span class="player-number">#{{ p.number }}</span>
+            <h3>{{ p.name }}</h3>
+            <p><strong>Pozycja:</strong> {{ p.position }}</p>
+            <p><strong>Klub:</strong> {{ p.club }}</p>
+            <p><strong>Kraj:</strong> {{ p.nationality }}</p>
+            <p><strong>Wiek:</strong> {{ p.age }}</p>
+          </div>
+          <div class="player-actions">
+            <button class="edit-btn" (click)="editPlayer(p._id!)">Edytuj</button>
+            <button class="delete-btn" (click)="deletePlayer(p._id!)">Usuń</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p>Wiktor Majchrzak | Informatyka stopień 2, semestr 3</p>
+      <p>Football App</p>
+    </div>
+  </footer>
+</div>

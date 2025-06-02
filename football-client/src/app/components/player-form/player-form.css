@@ -1,0 +1,86 @@
+/* Styl formularza */
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(9, 255, 0, 0.2);
+}
+
+.form-container h2 {
+  color: var(--text-green);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: clamp(20px, 3vw, 24px);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-green);
+  font-weight: bold;
+}
+
+input, select {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #e5f3e7;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-white);
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+button[type="submit"] {
+  background-color: var(--accent-color);
+  color: var(--text-white);
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 225, 255, 0.2);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .form-container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  input, select, button[type="submit"] {
+    padding: 0.7rem;
+  }
+}

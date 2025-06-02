@@ -1,0 +1,41 @@
+<div class="form-container">
+  <h2>{{ isEditMode ? 'Edytuj' : 'Dodaj' }} piłkarza</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label>
+      Imię:
+      <input [(ngModel)]="player.name" name="name" required />
+    </label>
+    
+    <label>
+      Pozycja:
+      <select [(ngModel)]="player.position" name="position" required>
+        <option value="bramkarz">Bramkarz</option>
+        <option value="obrońca">Obrońca</option>
+        <option value="pomocnik">Pomocnik</option>
+        <option value="napastnik">Napastnik</option>
+      </select>
+    </label>
+    
+    <label>
+      Numer:
+      <input type="number" [(ngModel)]="player.number" name="number" required />
+    </label>
+    
+    <label>
+      Klub:
+      <input [(ngModel)]="player.club" name="club" required />
+    </label>
+    
+    <label>
+      Narodowość:
+      <input [(ngModel)]="player.nationality" name="nationality" required />
+    </label>
+    
+    <label>
+      Wiek:
+      <input type="number" [(ngModel)]="player.age" name="age" required />
+    </label>
+    
+    <button type="submit">{{ isEditMode ? 'Zapisz' : 'Dodaj' }}</button>
+  </form>
+</div>
