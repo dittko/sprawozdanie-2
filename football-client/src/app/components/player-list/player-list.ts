@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { PlayerService, Player } from '../../services/player';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-player-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,HttpClientModule],
   templateUrl: './player-list.html',
   styleUrls: ['./player-list.css']
 })

@@ -1,14 +1,10 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
-export const appConfig: ApplicationConfig = {
+export const config = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-   // provideZonelessChangeDetection(),  // <-- To wyłącza Zone.js w przeglądarce
-    provideRouter(routes), 
-    provideClientHydration(withEventReplay())
+    provideRouter(routes),
+    provideHttpClient()
   ]
 };

@@ -14,7 +14,7 @@ export interface Player {
 
 @Injectable({ providedIn: 'root' })
 export class PlayerService {
-  private apiUrl = 'http://localhost:5000/api/players';
+  private apiUrl = 'https://football-api-bdji.onrender.com/api/players';
 
   constructor(private http: HttpClient) {}
 

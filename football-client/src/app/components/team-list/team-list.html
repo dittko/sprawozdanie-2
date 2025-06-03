@@ -1,0 +1,68 @@
+<div class="teams-container">
+  <div class="teams-header">
+    <h2>Zarządzanie drużynami</h2>
+    <div class="user-info" *ngIf="auth.getEmail()">
+      <span>Zalogowany jako: {{ auth.getEmail() }}</span>
+      <button class="logout-btn" (click)="logout()">Wyloguj</button>
+    </div>
+  </div>
+
+  <div class="error-message" *ngIf="error">{{ error }}</div>
+
+  <form class="team-form" (submit)="addTeam()">
+    <h3>Dodaj nową drużynę</h3>
+    <div class="form-group">
+      <input [(ngModel)]="newTeam.name" placeholder="Nazwa drużyny" name="name" required>
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="newTeam.country" placeholder="Kraj" name="country" required>
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="newTeam.league" placeholder="Liga" name="league">
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="newTeam.founded" placeholder="Rok założenia" name="founded" type="number">
+    </div>
+    <button type="submit" class="submit-btn">Dodaj drużynę</button>
+  </form>
+
+  <div class="teams-list">
+    <h3>Lista drużyn</h3>
+    <div *ngFor="let team of teams" class="team-card">
+      <div *ngIf="editTeamId !== team._id" class="team-info">
+        <div class="team-details">
+          <span class="team-name">{{ team.name }}</span>
+          <span class="team-country">{{ team.country }}</span>
+          <span class="team-league">{{ team.league }}</span>
+          <span class="team-founded">(założona {{ team.founded }})</span>
+        </div>
+        <div class="team-actions">
+          <button class="edit-btn" (click)="editTeam(team)">Edytuj</button>
+          <button class="delete-btn" (click)="deleteTeam(team._id)">Usuń</button>
+        </div>
+      </div>
+
+      <div *ngIf="editTeamId === team._id" class="edit-form">
+        <div class="form-group">
+          <input [(ngModel)]="editTeamData.name" placeholder="Nazwa" name="editName">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="editTeamData.country" placeholder="Kraj" name="editCountry">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="editTeamData.league" placeholder="Liga" name="editLeague">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="editTeamData.founded" placeholder="Rok zał." name="editFounded" type="number">
+        </div>
+        <div class="edit-actions">
+          <button class="save-btn" (click)="saveEdit(team._id)">Zapisz</button>
+          <button class="cancel-btn" (click)="cancelEdit()">Anuluj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="simple-footer">
+  <p>Wiktor Majchrzak | Informatyka stopień 2, semestr 3 </p>
+</footer>

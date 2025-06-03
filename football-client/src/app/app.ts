@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
-
-
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,10 +12,13 @@ import { provideRouter } from '@angular/router';
   styleUrls: ['./app.css']
 })
 export class AppComponent {}
-
-//bootstrapApplication(AppComponent, {
-//  providers: [
-//    provideRouter(routes),
-//    provideHttpClient()
-//  ]
-//});
+export const config = {
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ]
+};

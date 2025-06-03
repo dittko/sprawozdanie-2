@@ -1,59 +1,75 @@
+<header class="app-header">
+  <nav class="nav-links">
+    <a routerLink="/register" class="nav-link">Rejestracja</a>
+    <a routerLink="/forgot-password" class="nav-link">Zapomniałeś hasła?</a>
+
+    <div *ngIf="auth.currentUser | async as email" class="user-section">
+      <span class="user-email">Zalogowany jako: <strong>{{ email }}</strong></span>
+      <button class="logout-btn" (click)="logout()">Wyloguj</button>
+      <a *ngIf="auth.isAuthenticated()" routerLink="/teams" class="nav-link cta">Drużyny</a>
+    </div>
+
+    <a *ngIf="!(auth.currentUser | async)" routerLink="/login" class="nav-link">Zaloguj się</a>
+  </nav>
+</header>
+
 <div class="home-container">
   <div class="hero-section">
-    <h1>Football Manager Pro</h1>
-    <p class="subtitle">Profesjonalne narzędzie do zarządzania ulubionymi piłkarzami</p>
-    <div class="cta-buttons">
-      <a routerLink="/players" class="cta-button">Przejdź do listy piłkarzy</a>
-      <a routerLink="/login" class="cta-button secondary">Zaloguj się</a>
+    <div class="hero-content">
+      <h1>FootballAPP</h1>
+      <p class="subtitle">Narzędzie do zarządzania ulubionymi piłkarzami i zespołami</p>
+      <div class="cta-buttons">
+        <a routerLink="/players" class="cta-button">Przejdź do listy piłkarzy</a>
+                <a routerLink="/teams" class="cta-button">Przejdź do listy zespołów</a>
+
+        <a *ngIf="!(auth.currentUser | async)" routerLink="/login" class="cta-button secondary">Zaloguj się</a>
+      </div>
     </div>
   </div>
-
   <div class="project-description">
-    <h2>O projekcie</h2>
-    <div class="description-content">
-      <p>
-        Aplikacja Football Manager Pro powstała jako projekt zaliczeniowy na przedmiot Programowanie Aplikacji Internetowych.
-        Jest to pełnoprawny system łączący nowoczesny frontend w Angularze z REST API napisanym w Node.js.
-      </p>
-      
-      <h3>Główne funkcjonalności:</h3>
-      <ul>
-        <li>Pełny CRUD dla ulubionych piłkarzy (dodawanie, edycja, usuwanie)</li>
-        <li>System autentykacji użytkowników (rejestracja, logowanie, JWT)</li>
-        <li>Responsywny interfejs dostosowany do wszystkich urządzeń</li>
-        <li>Integracja z własnym API zgodnie z wymaganiami projektu</li>
-      </ul>
+  <h2>O projekcie</h2>
+  <div class="description-content">
+    <p>
+      Aplikacja <strong>FootballAPP</strong> została stworzona jako projekt zaliczeniowy na przedmiot <em>Web 2.0</em>.
+      To  system , który łączy frontend oparty na Angularze z backendowym REST API napisanym w Node.js.
+    </p>
+    
+    <h3>Główne funkcjonalności:</h3>
+    <ul>
+      <li>Pełna obsługa operacji CRUD dla piłkarzy i zespołów (dodawanie, edycja, usuwanie, przeglądanie)</li>
+      <li>System uwierzytelniania użytkowników: rejestracja, logowanie, aktywacja konta, zmiana oraz reset hasła</li>
+      <li>Interfejs responsywny – dostosowany do urządzeń mobilnych i desktopowych</li>
+      <li>Integracja z własnym API, w tym część dostępna wyłącznie po zalogowaniu (z użyciem tokenu JWT)</li>
+    </ul>
 
-      <h3>Technologie:</h3>
-      <div class="tech-stack">
-        <div class="tech-item">
-          <span>Frontend:</span> Angular 17, TypeScript, CSS
-        </div>
-        <div class="tech-item">
-          <span>Backend:</span> Node.js, Express, MongoDB
-        </div>
-        <div class="tech-item">
-          <span>Autentykacja:</span> JWT, bcrypt
-        </div>
+    <h3>Technologie:</h3>
+    <div class="tech-stack">
+      <div class="tech-item">
+        <span>Frontend:</span> Angular 17, TypeScript, CSS
+      </div>
+      <div class="tech-item">
+        <span>Backend:</span> Node.js, MongoDB
+      </div>
+      <div class="tech-item">
+        <span>Uwierzytelnianie:</span> JWT
       </div>
     </div>
   </div>
-
-  <footer class="home-footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Football Manager Pro</h4>
-        <p>Projekt zaliczeniowy z Programowania Aplikacji Internetowych</p>
-      </div>
-      <div class="footer-section">
-        <h4>Autor</h4>
-        <p>Wiktor Majchrzak</p>
-        <p>Informatyka, stopień 2, semestr 3</p>
-      </div>
-      <div class="footer-section">
-        <h4>Politechnika Częstochowska</h4>
-        <p>© 2025 Wszelkie prawa zastrzeżone</p>
-      </div>
-    </div>
-  </footer>
 </div>
+
+<footer class="home-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>FootballAPP</h4>
+      <p>Projekt zaliczeniowy z przedmiotu Web 2.0</p>
+    </div>
+    <div class="footer-section">
+      <h4>Autor</h4>
+      <p>Wiktor Majchrzak</p>
+      <p>Informatyka, studia II stopnia, semestr 3</p>
+    </div>
+    <div class="footer-section">
+      <h4>Politechnika Częstochowska</h4>
+    </div>
+  </div>
+</footer>

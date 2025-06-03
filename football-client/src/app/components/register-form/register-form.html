@@ -1,0 +1,11 @@
+<p>register-form works!</p>
+<div class="form-container">
+  <h2>Rejestracja</h2>
+  <form (ngSubmit)="onRegister()">
+    <label>Email: <input [(ngModel)]="email" name="email" required type="email" /></label>
+    <label>Hasło: <input [(ngModel)]="password" name="password" required type="password" /></label>
+    <button type="submit">Zarejestruj</button>
+  </form>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>

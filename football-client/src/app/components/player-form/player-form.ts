@@ -3,11 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PlayerService, Player } from '../../services/player';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-player-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './player-form.html',
   styleUrls: ['./player-form.css']
 })

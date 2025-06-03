@@ -1,9 +1,7 @@
-import 'zone.js/node'; 
-
-import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app';
 import { config } from './app/app.config.server';
+import { bootstrapApplication } from '@angular/platform-browser';
 
-const bootstrap = () => bootstrapApplication(AppComponent, config);
-
-export default bootstrap;
+export default function() {
+  return bootstrapApplication(AppComponent, config);
+}
