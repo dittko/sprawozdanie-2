@@ -13,17 +13,17 @@ export const routes: Routes = [
   { path: 'players', component: PlayerListComponent },
   { path: 'players/new', component: PlayerFormComponent },
   {
-    path: 'players/edit/:id',
-    component: PlayerFormComponent,
-    data: { render: { skip: true } }
-  },
+  path: 'players/edit/:id',
+  component: PlayerFormComponent,
+  data: { render: { mode: 'no-prerender' } }
+},
   { path: 'register', component: RegisterFormComponent },
   {
-    path: 'activate/:token',
-    redirectTo: '/',
-    pathMatch: 'full',
-    data: { render: { skip: true } }
-  },
+  path: 'activate/:token',
+  redirectTo: '/',
+  pathMatch: 'full',
+  data: { render: { mode: 'no-prerender' } }
+},
   { path: 'forgot-password', component: ForgotPasswordFormComponent },
   { path: 'reset-password', component: ResetPasswordFormComponent },
   { path: 'login', component: LoginFormComponent },
