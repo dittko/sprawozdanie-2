@@ -12,11 +12,21 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'players', component: PlayerListComponent },
   { path: 'players/new', component: PlayerFormComponent },
-  { path: 'players/edit/:id', component: PlayerFormComponent },
+  {
+    path: 'players/edit/:id',
+    component: PlayerFormComponent,
+    data: { render: { skip: true } }
+  },
   { path: 'register', component: RegisterFormComponent },
-  { path: 'activate/:token', redirectTo: '/', pathMatch: 'full' },
-   {path: 'forgot-password', component: ForgotPasswordFormComponent },
+  {
+    path: 'activate/:token',
+    redirectTo: '/',
+    pathMatch: 'full',
+    data: { render: { skip: true } }
+  },
+  { path: 'forgot-password', component: ForgotPasswordFormComponent },
   { path: 'reset-password', component: ResetPasswordFormComponent },
-   { path: 'login', component: LoginFormComponent },
-  { path: 'teams', component: TeamListComponent },
+  { path: 'login', component: LoginFormComponent },
+  { path: 'teams', component: TeamListComponent }
 ];
+
