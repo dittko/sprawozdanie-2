@@ -18,7 +18,7 @@ export class ForgotPasswordFormComponent {
   constructor(private http: HttpClient) {}
 
   onSubmit(): void {
-    this.http.post('http://localhost:5000/api/auth/forgot-password', {
+    this.http.post('https://football-api-bdji.onrender.com/api/auth/forgot-password', {
       email: this.email
     }).subscribe({
       next: () => this.message = 'Wysłano link do zmiany hasła na e-mail.',

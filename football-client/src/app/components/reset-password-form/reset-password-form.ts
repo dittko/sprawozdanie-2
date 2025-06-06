@@ -23,7 +23,7 @@ export class ResetPasswordFormComponent {
   }
 
   onSubmit(): void {
-    this.http.post(`http://localhost:5000/api/auth/reset-password/${this.token}`, {
+    this.http.post(`https://football-api-bdji.onrender.com/api/auth/reset-password/${this.token}`, {
       newPassword: this.newPassword,
       repeatPassword: this.repeatPassword
     }).subscribe({
