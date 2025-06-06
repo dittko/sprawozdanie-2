@@ -15,14 +15,14 @@ export const routes: Routes = [
   {
   path: 'players/edit/:id',
   component: PlayerFormComponent,
-  data: { render: { mode: 'no-prerender' } }
+  data: { render: { mode: 'disabled' } }
 },
   { path: 'register', component: RegisterFormComponent },
   {
   path: 'activate/:token',
   redirectTo: '/',
   pathMatch: 'full',
-  data: { render: { mode: 'no-prerender' } }
+  data: { render: { mode: 'disabled' } }
 },
   { path: 'forgot-password', component: ForgotPasswordFormComponent },
   { path: 'reset-password', component: ResetPasswordFormComponent },
